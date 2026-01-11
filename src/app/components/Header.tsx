@@ -2,8 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export function Header() {
   const router = useRouter();
@@ -12,9 +11,9 @@ export function Header() {
 
   const handleClick = () => {
     if (currentPath === "mycharacters") {
-      router.back();
+      router.push("/");
     } else {
-      router.replace("/mycharacters");
+      router.push("/mycharacters");
     }
   };
 
@@ -35,7 +34,7 @@ export function Header() {
 
       <Button
         onClick={handleClick}
-        className="bg-fuchsia-700 float-end rounded-4xl h-12 hover:bg-fuchsia-500 min-w-32"
+        className="bg-fuchsia-700 cursor-pointer float-end rounded-4xl h-12 hover:bg-fuchsia-500 min-w-32"
       >
         {currentPath === "mycharacters" ? "Home" : "My Characters"}
       </Button>

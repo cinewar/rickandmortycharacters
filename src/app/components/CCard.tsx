@@ -1,7 +1,10 @@
 import Image from "next/image";
 import { CHARACTER } from "../features/types/charactertypes";
 import { CircleIcon, MinusCircleIcon, PlusCircleIcon } from "lucide-react";
-import { useMyCharactersStore } from "../features/store/charactersStore";
+import {
+  useCharactersStore,
+  useMyCharactersStore,
+} from "../features/store/charactersStore";
 
 interface CCardProps {
   character: CHARACTER;
@@ -10,9 +13,13 @@ interface CCardProps {
 export default function CCard({ character }: CCardProps) {
   const { addMyCharacter, removeMyCharacter, myCharacters } =
     useMyCharactersStore();
+  const { characters } = useCharactersStore();
 
   const addItem = (character: CHARACTER) => {
-    if (!myCharacters.includes(character)) addMyCharacter(character);
+    if (!myCharacters.includes(character)) {
+      addMyCharacter(character);
+    }
+    console.log(character, myCharacters, "test");
   };
 
   const removeItem = (character: CHARACTER) => {
