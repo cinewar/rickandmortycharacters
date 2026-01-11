@@ -11,7 +11,6 @@ export async function fetcher({
   gender,
   status,
 }: FetcherParams): Promise<{ results: CHARACTER[] }> {
-  console.log("Fetching characters with:", { gender, status });
   const response = await fetch(
     `https://rickandmortyapi.com/api/character?gender=${gender}&status=${status}`
   );

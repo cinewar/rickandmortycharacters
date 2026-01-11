@@ -13,13 +13,11 @@ interface CCardProps {
 export default function CCard({ character }: CCardProps) {
   const { addMyCharacter, removeMyCharacter, myCharacters } =
     useMyCharactersStore();
-  const { characters } = useCharactersStore();
 
   const addItem = (character: CHARACTER) => {
     if (!myCharacters.includes(character)) {
       addMyCharacter(character);
     }
-    console.log(character, myCharacters, "test");
   };
 
   const removeItem = (character: CHARACTER) => {

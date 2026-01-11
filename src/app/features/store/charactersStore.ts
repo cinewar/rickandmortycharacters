@@ -6,6 +6,10 @@ interface CHARACTERSTATE {
   addCharacter: (character: CHARACTER) => void;
   removeCharacter: (id: string) => void;
   setCharacters: (characters: CHARACTER[]) => void;
+  myCharacters: CHARACTER[];
+  addMyCharacter: (character: CHARACTER) => void;
+  removeMyCharacter: (id: string) => void;
+  setMyCharacters: (myCharacters: CHARACTER[]) => void;
 }
 
 interface MYCHARACTERSTATE {
@@ -26,6 +30,17 @@ export const useCharactersStore = create<CHARACTERSTATE>((set) => ({
   removeCharacter: (id) =>
     set((state) => ({
       characters: state.characters.filter((char) => char.id !== id),
+    })),
+  myCharacters: [],
+  setMyCharacters: (myCharacters: CHARACTER[]) => set({ myCharacters }),
+  addMyCharacter: (character) => {
+    set((state) => ({
+      myCharacters: [...state.myCharacters, character],
+    }));
+  },
+  removeMyCharacter: (id) =>
+    set((state) => ({
+      myCharacters: state.myCharacters.filter((char) => char.id !== id),
     })),
 }));
 
