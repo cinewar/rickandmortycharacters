@@ -1,10 +1,7 @@
 import Image from "next/image";
 import { CHARACTER } from "../features/types/charactertypes";
 import { CircleIcon, MinusCircleIcon, PlusCircleIcon } from "lucide-react";
-import {
-  useCharactersStore,
-  useMyCharactersStore,
-} from "../features/store/charactersStore";
+import { useMyCharactersStore } from "../features/store/charactersStore";
 
 interface CCardProps {
   character: CHARACTER;
