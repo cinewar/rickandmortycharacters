@@ -6,10 +6,6 @@ interface SearchParams {
   status?: string;
 }
 
-// interface UseGetCharactersResult {
-//   characters: CHARACTER[];
-// }
-
 export function useGetCharacters({ gender, status }: SearchParams) {
   const { data } = useQuery({
     queryKey: ["characters"],

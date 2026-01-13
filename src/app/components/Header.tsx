@@ -11,7 +11,7 @@ export function Header() {
 
   const handleClick = () => {
     if (currentPath === "mycharacters") {
-      router.push("/");
+      router.back();
     } else {
       router.push("/mycharacters");
     }
