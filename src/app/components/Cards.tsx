@@ -2,10 +2,21 @@
 
 import CCard from "./CCard";
 
-import { useCharactersStore } from "../features/store/charactersStore";
+import { useQueryState } from "nuqs";
+
+import { useGetCharacters } from "../features/hooks/hooks";
 
 export function Cards() {
-  const { characters } = useCharactersStore();
+  const [gender] = useQueryState("gender", {
+    defaultValue: "",
+    shallow: false,
+  });
+  const [status] = useQueryState("status", {
+    defaultValue: "",
+    shallow: false,
+  });
+  const { characters } = useGetCharacters({ gender, status });
+  console.log(gender, status, "gender and status");
 
   return (
     <div className="mb-8">

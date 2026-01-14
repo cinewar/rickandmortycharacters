@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+
 import {
   Select,
   SelectContent,
@@ -12,12 +12,7 @@ import {
 
 import { useQueryState } from "nuqs";
 
-import { useCharactersStore } from "../features/store/charactersStore";
-import { useGetCharacters } from "../features/hooks/hooks";
-
 export function Filters() {
-  const { setCharacters } = useCharactersStore();
-
   const [gender, setGender] = useQueryState("gender", {
     defaultValue: "",
     shallow: false,
@@ -26,12 +21,6 @@ export function Filters() {
     defaultValue: "",
     shallow: false,
   });
-
-  const { characters } = useGetCharacters({ gender, status });
-
-  useEffect(() => {
-    setCharacters(characters);
-  }, [characters, setCharacters]);
 
   return (
     <div className="flex gap-4">
