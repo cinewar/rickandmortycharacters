@@ -12,7 +12,7 @@ export default function CCard({ character }: CCardProps) {
     useMyCharactersStore();
 
   const addItem = (character: CHARACTER) => {
-    if (!myCharacters.includes(character)) {
+    if (!myCharacters.find((item) => item.id === character.id)) {
       addMyCharacter(character);
     }
   };
@@ -24,7 +24,7 @@ export default function CCard({ character }: CCardProps) {
 
   return (
     <div className="w-full hover:bg-fuchsia-700 rounded-lg shadow-md overflow-hidden flex relative">
-      {myCharacters.includes(character) ? (
+      {myCharacters.find((item) => item.id === character.id) ? (
         <MinusCircleIcon
           onClick={() => removeItem(character)}
           className="absolute top-2 right-2 text-fuchsia-300 rounded-full hover:text-fuchsia-500 cursor-pointer sroke-[2px] hover:scale-110 transition-all"

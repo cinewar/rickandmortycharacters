@@ -16,7 +16,6 @@ export function Cards() {
     shallow: false,
   });
   const { characters } = useGetCharacters({ gender, status });
-  console.log(gender, status, "gender and status");
 
   return (
     <div className="mb-8">
